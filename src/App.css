@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+  width: 90%;
+  margin: 30px auto;
+}
+
+.carousel__container{
+  margin: 20px auto;
+}
+
+.carousel__img{
+  max-height: 300px;
+  max-width: 200px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.slick-prev:before, .slick-next:before{
+  color:#000000;
+}
+.meta__wrap{
+  text-align: left;
+}
+.title__wrap{
+  text-align: center;
+  padding-bottom: 20px;
+}
+.meta__wrap{
+  overflow: scroll;
+  padding: 20px 0 0 0;
+}
+.poster__img{
+  max-width: 100%;
+  margin: 0 auto;
+}
+.genre__select{
+  float: right;
+  width: 200px;
+  margin-top: 10px;
+}
