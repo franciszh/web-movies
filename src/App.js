@@ -14,15 +14,32 @@ class App extends Component {
     this.state = {
         movies : [],
         selectedMovie : null,
-        genre : ''
+        genre : '',
+        genres : []
     };
   }
-  updateStateWithMovie = (movies) => {
-    this.setState({movies,selectedMovie:movies[0]});
+  updateStateWithMovies = (movies) => {
+    this.setState({
+      movies,
+      selectedMovie:movies[0],
+      genres: this.createGenresAryWithMovies(movies)
+    });
   }
+
+  createGenresAryWithMovies = (movies) => {
+   let genres = [];
+   for (let movie of movies){
+    movie.Genre.split(',').forEach((e) => {
+      let trimmedGenre = e.trim();
+      genres.includes(trimmedGenre) || genres.push(trimmedGenre);
+    });
+   }
+   return genres;
+  }
+
   componentDidMount() {
     getMoviesFromApiAsync().then((res) => {
-      this.updateStateWithMovie(res.data);
+      this.updateStateWithMovies(res.data);
     }).catch((err) => {
       console.log(err);
     });
