@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { getMoviesFromLocalJson } from './Service';
+import { getMoviesFromApiAsync} from './Service';
 import MovieCarousel from './Carousel';
 import Poster from './Poster';
 import Meta from './Meta';
 import Title from './Title';
 import Genre from './Genre'
 
-import MovieJson from './data.json'
 import './App.css';
 
 class App extends Component {
@@ -22,7 +21,11 @@ class App extends Component {
     this.setState({movies,selectedMovie:movies[0]});
   }
   componentDidMount() {
-    getMoviesFromLocalJson(MovieJson, this.updateStateWithMovie);
+    getMoviesFromApiAsync().then((res) => {
+      this.updateStateWithMovie(res.data);
+    }).catch((err) => {
+      console.log(err);
+    });
   }
 
   render() {
