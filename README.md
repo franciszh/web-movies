@@ -1,5 +1,7 @@
 # Web movies
 
+# Please npm install again no matter you have done it before or not previously
+
 # Run local
 - `npm install`
 - `npm start`
