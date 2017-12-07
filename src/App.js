@@ -55,7 +55,7 @@ class App extends Component {
             <Meta selectedMovie={this.state.selectedMovie}/>
           </div>
           <div className="clearfix">
-            <Genre onGenreUpdate={genre=>this.setState({genre})}/>
+            <Genre onGenreUpdate={genre=>this.setState({genre})} genres={this.state.genres}/>
           </div>  
           <MovieCarousel genre={this.state.genre} movies={this.state.movies} onMovieSelect={selectedMovie => this.setState({selectedMovie})}/>
         </div>
