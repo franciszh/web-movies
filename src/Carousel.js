@@ -4,6 +4,9 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const MovieCarousel = ({movies, onMovieSelect, genre}) => {
+    if(!movies.length){
+        return null;
+    }
     const settings = {
         dots: false,
         infinite: false,

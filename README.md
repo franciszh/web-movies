@@ -22,5 +22,5 @@ serve -s build
 ## Testing
 
 ```
-Haven't used TDD for this due to tight timeframe
+npm test (The tests for Service must fail since it doesn't fetch an external API. With this framework, I can't do hosting and testing in the same time)
 ```
