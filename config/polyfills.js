@@ -1,5 +1,8 @@
 'use strict';
 
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
 if (typeof Promise === 'undefined') {
   // Rejection tracking prevents a common issue where React gets into an
   // inconsistent state due to an error, but it gets swallowed by a Promise,
@@ -27,5 +30,6 @@ if (process.env.NODE_ENV === 'test') {
         removeListener: function() {}
     };
   };
+  configure({adapter: new Adapter() });
 }
 
