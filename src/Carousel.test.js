@@ -67,4 +67,20 @@ describe('Carousel ', () => {
         expect(shallowMovieCarousel.find('[alt="gone"]')).toHaveLength(0);
     });
 
+    it('should have callback invoked when the image is clicked', () => {
+        const callback = jest.fn();
+        const movies = [
+            {
+                Id : '1',
+                Poster : 'http://example.com',
+                Title : 'show',
+                Genre : 'test'
+            }
+        ];
+        const genre = 'test';
+        const shallowMovieCarousel = shallow(<MovieCarousel movies={movies} onMovieSelect={callback} genre={genre}/>);
+        shallowMovieCarousel.find('.carousel__img').simulate('click');
+        expect(callback.mock.calls.length).toBe(1);
+    });
+
 });

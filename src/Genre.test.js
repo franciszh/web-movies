@@ -13,4 +13,13 @@ describe('Genre component ', () => {
         const genres = ['Action', 'History', 'Romance'];
         expect(shallow(<Genre genres={genres} onGenreUpdate={jest.fn()}/>).find('option')).toHaveLength(4);
     });
-});
+
+    it('should have callback invoked when select is on change', () => {
+        const genres = ['Action', 'History', 'Romance'];
+        const callback = jest.fn();
+        const shallowedGenre = shallow(<Genre genres={genres} onGenreUpdate={callback}/>);
+        shallowedGenre.find('select').simulate('change',{ target: { value: 'Action' }});
+        expect(callback.mock.calls.length).toBe(1);
+        
+    });
+}); 
